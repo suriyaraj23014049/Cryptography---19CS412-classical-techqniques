@@ -243,7 +243,8 @@ return 0;
 }
 ```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/d31f0275-c78d-4f74-a4ff-d8ff0f7aa55e)
+![image](https://github.com/user-attachments/assets/c78afcd9-b425-46b1-80fc-ae4d0a28615e)
+
 
 
 ## RESULT:
@@ -369,8 +370,7 @@ int main() {
 }
 ```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/02628a06-1615-4afb-9a70-3002a76da8b9)
-
+![image](https://github.com/user-attachments/assets/1ec1a047-95fc-4090-bd8c-9729122fab3b)
 
 ## RESULT:
 The program is executed successfully
@@ -455,7 +455,8 @@ int main() {
 }
 ```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/c426c52c-a96a-424c-9f1b-6df67674ba76)
+![image](https://github.com/user-attachments/assets/5cb4ea09-93fd-4576-b387-58d544b76427)
+
 
 
 ## RESULT:
@@ -541,7 +542,8 @@ printf("\n");
 }
 ```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/b6c06a3c-27b4-46cf-b884-6185d7a2df7a)
+![image](https://github.com/user-attachments/assets/48c54aef-1f3d-4d11-9c67-ce2862d2d7ae)
+
 
 
 ## RESULT:
