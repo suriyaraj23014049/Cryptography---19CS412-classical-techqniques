@@ -509,8 +509,18 @@ void vigenereDecrypt(char *text, const char *key) {
 }
 
 int main() {
-    const char *key = "KEY";  // Replace with your desired key
-    char message[] = "This is a secret message.";  // Replace with your message
+    char key[100];
+    char message[256];
+
+    // Input key
+    printf("Enter key: ");
+    fgets(key, sizeof(key), stdin);
+    key[strcspn(key, "\n")] = '\0';  // Remove newline character
+
+    // Input plaintext
+    printf("Enter plaintext: ");
+    fgets(message, sizeof(message), stdin);
+    message[strcspn(message, "\n")] = '\0';  // Remove newline character
 
     // Encrypt the message
     vigenereEncrypt(message, key);
@@ -522,9 +532,12 @@ int main() {
 
     return 0;
 }
+
+}
 ```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/5cb4ea09-93fd-4576-b387-58d544b76427)
+![image](https://github.com/user-attachments/assets/97f13ddd-60a5-4e38-9c5a-d7bce09e53a8)
+
 
 
 
