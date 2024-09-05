@@ -473,6 +473,7 @@ Testing algorithm with different key values.
 ```
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>  // For tolower() function
 
 // Function to perform Vigenere encryption
 void vigenereEncrypt(char *text, const char *key) {
@@ -481,12 +482,9 @@ void vigenereEncrypt(char *text, const char *key) {
 
     for (int i = 0; i < textLen; i++) {
         char c = text[i];
-        if (c >= 'A' && c <= 'Z') {
-            // Encrypt uppercase letters
-            text[i] = ((c - 'A' + key[i % keyLen] - 'A') % 26) + 'A';
-        } else if (c >= 'a' && c <= 'z') {
+        if (c >= 'a' && c <= 'z') {
             // Encrypt lowercase letters
-            text[i] = ((c - 'a' + key[i % keyLen] - 'A') % 26) + 'a';
+            text[i] = ((c - 'a' + tolower(key[i % keyLen]) - 'a') % 26) + 'a';
         }
     }
 }
@@ -498,13 +496,17 @@ void vigenereDecrypt(char *text, const char *key) {
 
     for (int i = 0; i < textLen; i++) {
         char c = text[i];
-        if (c >= 'A' && c <= 'Z') {
-            // Decrypt uppercase letters
-            text[i] = ((c - 'A' - (key[i % keyLen] - 'A') + 26) % 26) + 'A';
-        } else if (c >= 'a' && c <= 'z') {
+        if (c >= 'a' && c <= 'z') {
             // Decrypt lowercase letters
-            text[i] = ((c - 'a' - (key[i % keyLen] - 'A') + 26) % 26) + 'a';
+            text[i] = ((c - 'a' - (tolower(key[i % keyLen]) - 'a') + 26) % 26) + 'a';
         }
+    }
+}
+
+// Function to convert a string to lowercase
+void toLowerCase(char *str) {
+    for (int i = 0; str[i]; i++) {
+        str[i] = tolower(str[i]);
     }
 }
 
@@ -512,15 +514,21 @@ int main() {
     char key[100];
     char message[256];
 
-    // Input key
+    // Input plaintext first
+    printf("Enter plaintext: ");
+    fgets(message, sizeof(message), stdin);
+    message[strcspn(message, "\n")] = '\0';  // Remove newline character
+
+    // Convert plaintext to lowercase
+    toLowerCase(message);
+
+    // Input key next
     printf("Enter key: ");
     fgets(key, sizeof(key), stdin);
     key[strcspn(key, "\n")] = '\0';  // Remove newline character
 
-    // Input plaintext
-    printf("Enter plaintext: ");
-    fgets(message, sizeof(message), stdin);
-    message[strcspn(message, "\n")] = '\0';  // Remove newline character
+    // Convert key to lowercase
+    toLowerCase(key);
 
     // Encrypt the message
     vigenereEncrypt(message, key);
@@ -533,12 +541,9 @@ int main() {
     return 0;
 }
 
-}
 ```
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/97f13ddd-60a5-4e38-9c5a-d7bce09e53a8)
-
-
+![image](https://github.com/user-attachments/assets/be84427b-6cfe-4fd6-873d-bf8be1f39e30)
 
 
 ## RESULT:
